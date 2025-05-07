@@ -22,12 +22,6 @@ class Auto {
       this.modelo = modelo;
       this.encendido = false;
   
-      document.writeln("El auto es de color: " + color);
-      document.writeln("<br>");
-      document.writeln("El auto es marca: " + marca);
-      document.writeln("<br>");
-      document.writeln("El auto es modelo: " + modelo);
-      document.writeln("<br>");
     }
   
     encender() {

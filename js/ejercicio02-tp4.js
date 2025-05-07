@@ -10,46 +10,39 @@ Utiliza este objeto para mostrar la descripción, ingresar y extraer dinero y vo
 
 */
 
-class Cuenta {
-    constructor(titular) {
-      this.titular = titular;
-      this.saldo = 0;
-    }
-
-    ingresar(cantidad) {
-      if (cantidad > 0) {
-        this.saldo += cantidad;
-        document.writeln(`Se ingresaron $${cantidad}<br>`);
+const cuenta = {
+    titular: "Alex",
+    saldo: 0,
+  
+    ingresar: function () {
+      const monto = parseFloat(prompt("¿Cuánto deseas ingresar?"));
+      if (isNaN(monto) || monto <= 0) {
+        alert("Ingresa un monto válido mayor a 0.");
       } else {
-        document.writeln("Cantidad inválida para ingresar<br>");
+        this.saldo += monto;
+        alert(`Se ingresaron $${monto.toFixed(2)}.\nNuevo saldo: $${this.saldo.toFixed(2)}.`);
       }
-    }
-
-    extraer(cantidad) {
-      if (cantidad > 0 && cantidad <= this.saldo) {
-        this.saldo -= cantidad;
-        document.writeln(`Se extrajeron $${cantidad}<br>`);
+    },
+  
+    extraer: function () {
+      const monto = parseFloat(prompt("¿Cuánto deseas extraer?"));
+      if (isNaN(monto) || monto <= 0) {
+        alert("Ingresa un monto válido mayor a 0.");
+      } else if (monto > this.saldo) {
+        alert("Fondos insuficientes.");
       } else {
-        document.writeln("Cantidad inválida o saldo insuficiente<br>");
+        this.saldo -= monto;
+        alert(`Se extrajeron $${monto.toFixed(2)}.\nNuevo saldo: $${this.saldo.toFixed(2)}.`);
       }
+    },
+  
+    informar: function () {
+      alert(`Titular: ${this.titular}\nSaldo actual: $${this.saldo.toFixed(2)}`);
     }
-
-    informar() {
-      const info = `Titular: ${this.titular}, Saldo: $${this.saldo}`;
-      document.writeln(info + "<br>");
-      return info;
-    }
-  }
-
-  // Crear el objeto cuenta
-  const cuenta = new Cuenta("Alex");
-
-  // Mostrar estado inicial
-  cuenta.informar();
-
-  // Ingresar y extraer dinero
-  cuenta.ingresar(1000);
-  cuenta.extraer(500);
-
-  // Mostrar estado final
-  cuenta.informar();
+  };
+  
+  // Flujo del programa
+  cuenta.informar();  // Muestra estado inicial
+  cuenta.ingresar();  // Pide monto a ingresar
+  cuenta.extraer();   // Pide monto a extraer
+  cuenta.informar();  // Muestra estado final
