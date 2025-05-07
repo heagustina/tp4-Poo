@@ -7,19 +7,19 @@ Usa prompt para ingresar los datos de los libros y el género.
 
 let libros = [];
 
-// Pedimos al usuario cuántos libros quiere ingresar
-let cantidadLibros = prompt("¿Cuántos libros deseas ingresar?");
-cantidadLibros = parseInt(cantidadLibros);  // Convertimos el número ingresado a entero
+// Preguntamos cuántos libros va a ingresar el usuario
+let cantidad = prompt("¿Cuántos libros deseas ingresar?");
+cantidad = parseInt(cantidad);
 
-// Usamos un bucle para ingresar los datos de cada libro
-for (let i = 0; i < cantidadLibros; i++) {
+// Usamos un bucle para pedir los datos de cada libro
+for (let i = 0; i < cantidad; i++) {
   let titulo = prompt("Ingresa el título del libro:");
   let autor = prompt("Ingresa el autor del libro:");
-  let año = prompt("Ingresa el año de publicación del libro:");
-  año = parseInt(año);  // Convertimos el año a número
+  let año = prompt("Ingresa el año del libro:");
+  año = parseInt(año);
   let genero = prompt("Ingresa el género del libro:");
 
-  // Creamos un objeto para cada libro y lo agregamos al array
+  // Creamos el objeto libro
   let libro = {
     titulo: titulo,
     autor: autor,
@@ -27,36 +27,27 @@ for (let i = 0; i < cantidadLibros; i++) {
     genero: genero
   };
 
-  libros.push(libro);  // Añadimos el libro al array
+  // Lo agregamos al array
+  libros.push(libro);
 }
 
-// Pedimos al usuario que ingrese el género por el que quiere filtrar los libros
-let generoFiltro = prompt("Ingresa el género por el que deseas filtrar los libros:");
+// Pedimos al usuario el género por el que quiere filtrar
+let generoBuscado = prompt("¿Qué género quieres buscar?");
 
-// Creamos un array para almacenar los libros que coinciden con el género ingresado
-let librosFiltrados = [];
+// Usamos filter para obtener solo los libros del género buscado
+let librosFiltrados = libros.filter(function(libro) {
+  return libro.genero === generoBuscado;
+});
 
-// Usamos un bucle para recorrer los libros y filtrar por género
-for (let i = 0; i < libros.length; i++) {
-  if (libros[i].genero === generoFiltro) {
-    librosFiltrados.push(libros[i]);  // Si el género coincide, agregamos el libro al array filtrado
-  }
-}
-
-// Mostramos el resultado en la pantalla
-let resultadoDiv = document.createElement("div");
+// Mostramos los resultados con document.write()
+document.write("<h2>Libros encontrados del género: " + generoBuscado + "</h2>");
 
 if (librosFiltrados.length === 0) {
-  resultadoDiv.innerHTML = "<h2>No se encontraron libros en este género.</h2>";
+  document.write("<p>No se encontraron libros de ese género.</p>");
 } else {
-  resultadoDiv.innerHTML = "<h2>Libros de género '" + generoFiltro + "':</h2><ul>";
-
-  // Mostramos los libros filtrados
+  document.write("<ul>");
   for (let i = 0; i < librosFiltrados.length; i++) {
-    resultadoDiv.innerHTML += "<li><strong>" + librosFiltrados[i].titulo + "</strong> de " + librosFiltrados[i].autor + " (" + librosFiltrados[i].año + ")</li>";
+    document.write("<li><strong>" + librosFiltrados[i].titulo + "</strong> de " + librosFiltrados[i].autor + " (" + librosFiltrados[i].año + ")</li>");
   }
-  resultadoDiv.innerHTML += "</ul>";
+  document.write("</ul>");
 }
-
-// Agregamos el resultado a la página
-document.body.appendChild(resultadoDiv);
