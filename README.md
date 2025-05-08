@@ -1,5 +1,5 @@
 # TP4 - Objetos y Clases
-Este proyecto es una recopilación de ejercicios realizados como parte del Trabajo Práctico 1 del Módulo 2 sobre JavaScript. Está orientado a la práctica de conceptos básicos del lenguaje y su interacción con HTML.
+Este proyecto es una recopilación de ejercicios realizados como parte del Trabajo Práctico 4 del Módulo 2 sobre JavaScript. Está orientado a la práctica de conceptos básicos del lenguaje y su interacción con HTML.
 
 ## 🧠 Descripción
 Se trata de una serie de consignas donde se desarrollan los primeros programas utilizando JavaScript. Entre los ejercicios realizados se incluyen:
