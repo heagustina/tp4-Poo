@@ -50,9 +50,9 @@ let alumno = {
   }
   
   // Mostramos el resultado en la pantalla
-  document.write("<h2>Información del alumno</h2>");
-  document.write("<p><strong>Nombre:</strong> " + alumno.nombre + "</p>");
-  document.write("<p><strong>Curso:</strong> " + alumno.curso + "</p>");
-  document.write("<p><strong>Calificaciones:</strong> " + alumno.calificaciones.join(", ") + "</p>");
-  document.write("<p><strong>Nota más alta:</strong> " + notaMasAlta + "</p>");
-  document.write("<p><strong>Clasificación:</strong> " + clasificacion + "</p>");
+  document.writeln("<h2>Información del alumno</h2>");
+  document.writeln("<p><strong>Nombre:</strong> " + alumno.nombre + "</p>");
+  document.writeln("<p><strong>Curso:</strong> " + alumno.curso + "</p>");
+  document.writeln("<p><strong>Calificaciones:</strong> " + alumno.calificaciones.join(", ") + "</p>");
+  document.writeln("<p><strong>Nota más alta:</strong> " + notaMasAlta + "</p>");
+  document.writeln("<p><strong>Clasificación:</strong> " + clasificacion + "</p>");

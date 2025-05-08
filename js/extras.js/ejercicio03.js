@@ -40,14 +40,14 @@ let librosFiltrados = libros.filter(function(libro) {
 });
 
 // Mostramos los resultados con document.write()
-document.write("<h2>Libros encontrados del género: " + generoBuscado + "</h2>");
+document.writeln("<h2>Libros encontrados del género: " + generoBuscado + "</h2>");
 
 if (librosFiltrados.length === 0) {
-  document.write("<p>No se encontraron libros de ese género.</p>");
+  document.writeln("<p>No se encontraron libros de ese género.</p>");
 } else {
-  document.write("<ul>");
+  document.writeln("<ul>");
   for (let i = 0; i < librosFiltrados.length; i++) {
-    document.write("<li><strong>" + librosFiltrados[i].titulo + "</strong> de " + librosFiltrados[i].autor + " (" + librosFiltrados[i].año + ")</li>");
+    document.writeln("<li><strong>" + librosFiltrados[i].titulo + "</strong> de " + librosFiltrados[i].autor + " (" + librosFiltrados[i].año + ")</li>");
   }
-  document.write("</ul>");
+  document.writeln("</ul>");
 }
